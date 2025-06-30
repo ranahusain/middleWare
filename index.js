@@ -1,4 +1,6 @@
 const express = require("express");
+// Importing the route file
+const route = require("./routes/route.js");
 const app = express();
 const Port = 3000;
 
@@ -31,6 +33,12 @@ const validationMiddleware = function (req, res, next) {
   next();
 };
 app.use(validationMiddleware);
+
+//mounting the route file
+app.use("/api", route);
+
+// /api/student
+// /api/admin
 
 app.get("/", (req, res) => {
   console.log("After all Middlewares now I am in the route handler");
