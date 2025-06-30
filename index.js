@@ -12,16 +12,19 @@ const logginMiddleware = function (req, res, next) {
   console.log("logging Middlware");
   next();
 };
+app.use(logginMiddleware);
 
 const authMiddleware = function (req, res, next) {
   console.log("Authentication Middleware");
   next();
 };
+app.use(authMiddleware);
 
 const validationMiddleware = function (req, res, next) {
   console.log("validation Middleware");
   next();
 };
+app.use(validationMiddleware);
 
 app.get("/", (req, res) => {
   console.log(req.body);
